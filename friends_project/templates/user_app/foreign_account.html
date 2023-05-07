@@ -6,74 +6,73 @@
 
 
 {% if status == "strangers" %}
-    <div class="relationship_panel">
-        <p class="relationship__status">
-            {% trans "Now you are not friends" %}
-        </p>
-        <form method="post">
-            {% csrf_token %}
-            {{send_req_btn}}
-            <button type="submit" name="send_request" value="True">
-                {% trans "Send a friendship request" %}
-            </button>
-        </form>
-    </div>
+<div class="relationship_panel">
+    <p class="relationship__status">
+        {% trans "Now you are not friends" %}
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        {{send_req_btn}}
+        <button type="submit" name="send_request" value="True">
+            {% trans "Send a friendship request" %}
+        </button>
+    </form>
+</div>
 {% endif %}
 
 {% if status == "request_is_sent" %}
-    <div class="relationship_panel">
-        <p class="relationship__status">
-            {% trans "Request is sent" %}
-        </p>
-        <form method="post">
-            {% csrf_token %}
-            {{cancel_req_btn}}
-            <button type="submit" name="cancel_request" value="True" class="red__status_btn">
-                {% trans "Cancel a request" %}
-            </button>
-        </form>
-    </div>
+<div class="relationship_panel">
+    <p class="relationship__status">
+        {% trans "Request is sent" %}
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        {{cancel_req_btn}}
+        <button type="submit" name="cancel_request" value="True" class="red__status_btn">
+            {% trans "Cancel a request" %}
+        </button>
+    </form>
+</div>
 {% endif %}
 
 
 {% if status == "request_is_received" %}
-    <div class="relationship_panel">
-        <p class="relationship__status">
-            {% trans "Request is received" %}
-        </p>
-        <form method="post">
-            {% csrf_token %}
-            {{cancel_req_btn}}
-            <button type="submit" name="accept_request" value="True">
-                {% trans "Accept a request" %}
-            </button>
-        </form>
-        <form method="post">
-            {% csrf_token %}
-            {{cancel_req_btn}}
-            <button type="submit" name="reject_request" value="True" class="red__status_btn">
-                {% trans "Reject a request" %}
-            </button>
-        </form>
-    </div>
+<div class="relationship_panel">
+    <p class="relationship__status">
+        {% trans "Request is received" %}
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        {{cancel_req_btn}}
+        <button type="submit" name="accept_request" value="True">
+            {% trans "Accept a request" %}
+        </button>
+    </form>
+    <form method="post">
+        {% csrf_token %}
+        {{cancel_req_btn}}
+        <button type="submit" name="reject_request" value="True" class="red__status_btn">
+            {% trans "Reject a request" %}
+        </button>
+    </form>
+</div>
 {% endif %}
 
 
 
 {% if status == "friends" %}
-    <div class="relationship_panel">
-        <p class="relationship__status">
-            {% trans "You are friends" %}
-        </p>
-        <form method="post">
-            {% csrf_token %}
-            {{cancel_req_btn}}
-            <button type="submit" name="remove_friend" value="True" class="red__status_btn">
-                {% trans "Remove friend" %}
-            </button>
-        </form>
-    </div>
+<div class="relationship_panel">
+    <p class="relationship__status">
+        {% trans "You are friends" %}
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        {{cancel_req_btn}}
+        <button type="submit" name="remove_friend" value="True" class="red__status_btn">
+            {% trans "Remove friend" %}
+        </button>
+    </form>
+</div>
 {% endif %}
 
 {% endblock %}
-

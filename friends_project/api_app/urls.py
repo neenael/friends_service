@@ -10,5 +10,5 @@ router.register(r"friendship_request", FriendshipRequestAPIViewSet)
 app_name = "api_app"
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path("", include(router.urls)),
 ]

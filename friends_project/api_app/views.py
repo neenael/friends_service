@@ -15,7 +15,7 @@ class FriendshipAPIViewSet(ModelViewSet):
         responses={
             200: FriendshipSerializer,
             404: OpenApiResponse(description="Not found"),
-        }
+        },
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
@@ -26,7 +26,7 @@ class FriendshipAPIViewSet(ModelViewSet):
         responses={
             200: FriendshipSerializer,
             404: OpenApiResponse(description="This friendship not found"),
-        }
+        },
     )
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
@@ -37,7 +37,7 @@ class FriendshipAPIViewSet(ModelViewSet):
         responses={
             200: FriendshipSerializer,
             404: OpenApiResponse(description="This friendship not found"),
-        }
+        },
     )
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
@@ -48,7 +48,7 @@ class FriendshipAPIViewSet(ModelViewSet):
         responses={
             200: FriendshipSerializer,
             404: OpenApiResponse(description="This friendship not found"),
-        }
+        },
     )
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
@@ -59,7 +59,7 @@ class FriendshipAPIViewSet(ModelViewSet):
         responses={
             200: FriendshipSerializer,
             404: OpenApiResponse(description="This friendship not found"),
-        }
+        },
     )
     def partial_update(self, request, *args, **kwargs):
         return super().partial_update(request, *args, **kwargs)
@@ -70,7 +70,7 @@ class FriendshipAPIViewSet(ModelViewSet):
         responses={
             200: FriendshipSerializer,
             404: OpenApiResponse(description="This friendship not found"),
-        }
+        },
     )
     def destroy(self, request, *args, **kwargs):
         return super().destroy(request, *args, **kwargs)
@@ -87,7 +87,7 @@ class FriendshipRequestAPIViewSet(ModelViewSet):
         responses={
             200: FriendshipSerializer,
             404: OpenApiResponse(description="Not found"),
-        }
+        },
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
@@ -98,7 +98,7 @@ class FriendshipRequestAPIViewSet(ModelViewSet):
         responses={
             200: FriendshipSerializer,
             404: OpenApiResponse(description="This friendship-request not found"),
-        }
+        },
     )
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
@@ -109,7 +109,7 @@ class FriendshipRequestAPIViewSet(ModelViewSet):
         responses={
             200: FriendshipSerializer,
             404: OpenApiResponse(description="This friendship-request not found"),
-        }
+        },
     )
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
@@ -120,7 +120,7 @@ class FriendshipRequestAPIViewSet(ModelViewSet):
         responses={
             200: FriendshipSerializer,
             404: OpenApiResponse(description="This friendship-request not found"),
-        }
+        },
     )
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
@@ -131,7 +131,7 @@ class FriendshipRequestAPIViewSet(ModelViewSet):
         responses={
             200: FriendshipSerializer,
             404: OpenApiResponse(description="This friendship-request not found"),
-        }
+        },
     )
     def partial_update(self, request, *args, **kwargs):
         return super().partial_update(request, *args, **kwargs)
@@ -142,7 +142,7 @@ class FriendshipRequestAPIViewSet(ModelViewSet):
         responses={
             200: FriendshipSerializer,
             404: OpenApiResponse(description="This friendship-request not found"),
-        }
+        },
     )
     def destroy(self, request, *args, **kwargs):
         return super().destroy(request, *args, **kwargs)

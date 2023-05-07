@@ -1,6 +1,12 @@
 # Friends service
 Service for friends around the world
 ## Endpoints
+- [Get started](#get-started)
+- [Model description](#model-description)
+- [API Documentation](#api-documentation)
+  - [Friendship API](#friendship-api)
+  - [FriendshipRequest API](#friendship-request-api)
+
 
 ## Get started
 1. Сopy the project from the repository:
@@ -147,10 +153,6 @@ Response 200:
   "member_2": 0
 }
 ```
-
-
-
-
 ### PATCH /api/v1/friendship/{id}/
 Patchs friendship
 
@@ -170,9 +172,6 @@ Response 200:
   "member_2": 0
 }
 ```
-
-
-
 ### DELETE /api/v1/friendship/{id}/
 Removes friendship
 
@@ -185,8 +184,6 @@ Response 200:
   "member_2": 0
 }
 ```
-
-
 ## Friendship request API
 ### GET /api/v1/friendship_request/
 Returns list of friendships request.\

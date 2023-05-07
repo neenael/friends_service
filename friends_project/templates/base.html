@@ -2,6 +2,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>
@@ -15,37 +16,37 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 </head>
+
 <body>
     <header class="header">
         <div class="header__wrapper container">
-                {% if request.user.is_authenticated %}
-                <div>
-                    <a href="{% url 'user_app:account' pk=request.user.pk %}">
-                        {% trans "My profile" %}
-                    </a>
-                </div>
-                <div>
-                    <a href="{% url 'user_app:users_list' %}">
-                        {% trans "Users list" %}
-                    </a>
-                </div>
-        {% endif %}
+            {% if request.user.is_authenticated %}
+            <div>
+                <a href="{% url 'user_app:account' pk=request.user.pk %}">
+                    {% trans "My profile" %}
+                </a>
+            </div>
+            <div>
+                <a href="{% url 'user_app:users_list' %}">
+                    {% trans "Users list" %}
+                </a>
+            </div>
+            {% endif %}
 
-        <form action="{% url 'set_language' %}" method="post" class="header__lang">
-            {% csrf_token %}
-            <select name="language">
-              {% get_current_language as LANGUAGE_CODE %}
-              {% get_available_languages as LANGUAGES %}
-              {% get_language_info_list for LANGUAGES as languages %}
-              {% for language in  languages%}
-                <option value="{{ language.code }}"
-                        {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
-                          {{language.name_local}}
-                </option>
-              {% endfor %}
-            </select>
-            <button type="submit">{% trans "Set" %}</button>
-      </form>
+            <form action="{% url 'set_language' %}" method="post" class="header__lang">
+                {% csrf_token %}
+                <select name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages%}
+                    <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                        {{language.name_local}}
+                    </option>
+                    {% endfor %}
+                </select>
+                <button type="submit">{% trans "Set" %}</button>
+            </form>
         </div>
     </header>
     <main class="main">
@@ -54,4 +55,5 @@
     </main>
 
 </body>
+
 </html>

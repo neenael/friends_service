@@ -12,11 +12,11 @@ from django.db.models import Q
 
 
 class ServiceLoginView(LoginView):
-    template_name = 'user_app/login.html'
+    template_name = "user_app/login.html"
     redirect_authenticated_user = True
 
     def get_success_url(self):
-        return reverse_lazy('user_app:account', kwargs={'pk': self.request.user.pk})
+        return reverse_lazy("user_app:account", kwargs={"pk": self.request.user.pk})
 
 
 class RegisterCreateView(CreateView):
@@ -24,7 +24,7 @@ class RegisterCreateView(CreateView):
     template_name = "user_app/sign_up.html"
 
     def get_success_url(self):
-        return reverse_lazy('user_app:account', kwargs={'pk': self.object.pk})
+        return reverse_lazy("user_app:account", kwargs={"pk": self.object.pk})
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -37,22 +37,40 @@ class RegisterCreateView(CreateView):
 
 @login_required
 def account_view(request, pk):
-    if request.method == 'GET':
+    if request.method == "GET":
         context = {
             "user": User.objects.get(pk=pk),
         }
         if request.user.id == pk:
-            context["friends"] = Friendship.objects.filter(Q(member_1=request.user.id) | Q(member_2=request.user.id))
-            context["in_reqs"] = FriendshipRequest.objects.filter(request_to=request.user.id, is_received=False).all()
-            context["out_reqs"] = FriendshipRequest.objects.filter(request_from=request.user.id, is_received=False).all()
-            return render(request, 'user_app/my_account.html', context=context)
+            context["friends"] = Friendship.objects.filter(
+                Q(member_1=request.user.id) | Q(member_2=request.user.id)
+            )
+            context["in_reqs"] = FriendshipRequest.objects.filter(
+                request_to=request.user.id, is_received=False
+            ).all()
+            context["out_reqs"] = FriendshipRequest.objects.filter(
+                request_from=request.user.id, is_received=False
+            ).all()
+            return render(request, "user_app/my_account.html", context=context)
         else:
-            are_friends = (Friendship.objects.filter(member_1_id=request.user.id, member_2=pk).exists() or
-                    Friendship.objects.filter(member_1_id=pk, member_2=request.user.id).exists())
+            are_friends = (
+                Friendship.objects.filter(
+                    member_1_id=request.user.id, member_2=pk
+                ).exists()
+                or Friendship.objects.filter(
+                    member_1_id=pk, member_2=request.user.id
+                ).exists()
+            )
             is_req_sent = FriendshipRequest.objects.filter(
-                request_from_id=request.user.id,is_received=False, request_to_id=pk).exists()
+                request_from_id=request.user.id, is_received=False, request_to_id=pk
+            ).exists()
+            if is_req_sent:
+                print(FriendshipRequest.objects.get(
+                    request_from_id=request.user.id, is_received=False, request_to_id=pk
+                ))
             is_req_received = FriendshipRequest.objects.filter(
-                request_from_id=pk, is_received=False, request_to_id=request.user.id).exists()
+                request_from_id=pk, is_received=False, request_to_id=request.user.id
+            ).exists()
 
             if are_friends:
                 context["status"] = "friends"
@@ -63,24 +81,27 @@ def account_view(request, pk):
             else:
                 context["status"] = "strangers"
 
-            return render(request, 'user_app/foreign_account.html', context=context)
+            return render(request, "user_app/foreign_account.html", context=context)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         if request.POST.get("send_request"):
             sent_request = FriendshipRequest.objects.get_or_create(
                 request_from=User.objects.get(pk=request.user.id),
-                request_to=User.objects.get(pk=pk))
+                request_to=User.objects.get(pk=pk),
+            )
 
             received_request = FriendshipRequest.objects.filter(
                 request_from=User.objects.get(pk=pk),
-                request_to=User.objects.get(pk=request.user.id))
+                request_to=User.objects.get(pk=request.user.id),
+            )
 
             is_in_request = received_request.exists()
             if is_in_request:
                 sent_request = sent_request[0]
                 received_request = FriendshipRequest.objects.get(
                     request_from=User.objects.get(pk=pk),
-                    request_to=User.objects.get(pk=request.user.id))
+                    request_to=User.objects.get(pk=request.user.id),
+                )
                 sent_request.is_received = True
                 received_request.is_received = True
 
@@ -90,36 +111,42 @@ def account_view(request, pk):
 
                 Friendship.objects.get_or_create(
                     member_1=User.objects.get(pk=pk),
-                    member_2=User.objects.get(pk=request.user.id)
+                    member_2=User.objects.get(pk=request.user.id),
                 )
         elif request.POST.get("cancel_request"):
             friends_request = FriendshipRequest.objects.get(
                 request_from=User.objects.get(pk=request.user.id),
-                request_to=User.objects.get(pk=pk))
+                request_to=User.objects.get(pk=pk),
+            )
             friends_request.delete()
         elif request.POST.get("accept_request"):
             friends_request = FriendshipRequest.objects.get(
                 request_from=User.objects.get(pk=pk),
-                request_to=User.objects.get(pk=request.user.id))
+                request_to=User.objects.get(pk=request.user.id),
+            )
             friends_request.is_received = True
             friends_request.save(update_fields=["is_received"])
 
             Friendship.objects.get_or_create(
                 member_1=User.objects.get(pk=pk),
-                member_2=User.objects.get(pk=request.user.id)
+                member_2=User.objects.get(pk=request.user.id),
             )
         elif request.POST.get("reject_request"):
             friends_request = FriendshipRequest.objects.get(
                 request_from=User.objects.get(pk=pk),
-                request_to=User.objects.get(pk=request.user.id))
+                request_to=User.objects.get(pk=request.user.id),
+            )
             friends_request.delete()
         elif request.POST.get("remove_friend"):
             friendship = Friendship.objects.filter(
-                Q(member_1=request.user.id, member_2=pk) | Q(member_1=pk, member_2=request.user.id))
+                Q(member_1=request.user.id, member_2=pk)
+                | Q(member_1=pk, member_2=request.user.id)
+            )
             friends_request = FriendshipRequest.objects.filter(
-                Q(request_from=request.user.id, request_to=pk) | Q(request_from=pk, request_to=request.user.id))[0]
-            friends_request.is_received = False
-            friends_request.save(update_fields=["is_received"])
+                Q(request_from=request.user.id, request_to=pk)
+                | Q(request_from=pk, request_to=request.user.id)
+            )[0]
+            friends_request.delete()
             friendship.delete()
 
         return redirect(reverse("user_app:account", kwargs={"pk": pk}))
@@ -127,10 +154,9 @@ def account_view(request, pk):
 
 class UsersListView(LoginRequiredMixin, ListView):
     model = User
-    template_name = 'user_app/users_list.html'
-    context_object_name = 'users'
+    template_name = "user_app/users_list.html"
+    context_object_name = "users"
 
 
 class ServiceLogoutView(LogoutView):
     next_page = reverse_lazy("start_page")
-

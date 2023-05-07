@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block title %}
-  {{user.username}}
+{{user.username}}
 {% endblock %}
 
 {% block main %}
@@ -13,9 +13,9 @@
       {{user.username}}
     </h1>
     {% if request.user == user %}
-        <a href="{% url 'user_app:logout' %}" class="account_owner__logout">
-            {% trans "Log out" %}
-        </a>
+    <a href="{% url 'user_app:logout' %}" class="account_owner__logout">
+      {% trans "Log out" %}
+    </a>
     {% endif %}
 
   </div>
@@ -28,5 +28,3 @@
 
 </div>
 {% endblock %}
-
-
