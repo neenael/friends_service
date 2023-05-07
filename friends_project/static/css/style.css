@@ -252,6 +252,7 @@ button {
 .register__btn {
   color: #30bf39;
   border: 3px solid #30bf39;
+  background-color: #fff;
   padding: 10px 15px;
   border-radius: 5px;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -259,6 +260,25 @@ button {
 @media (max-width: 1500px) {
   .container {
     max-width: 1000px;
+  }
+  .header__lang > * {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .container {
+    max-width: 800px;
+  }
+  .header__lang > * {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+}
+@media (max-width: 900px) {
+  .container {
+    max-width: 500px;
   }
   .header__lang > * {
     font-size: 14px;
