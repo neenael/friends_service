@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Welcome" %}
+{% endblock %}
+
+{% block main %}
+  <h1 class="welcome__title">
+    {% trans "Welcome to Friends Service!" %}
+  </h1>
+  <p class="welcome__subtitle">
+    {% trans "We connect people all over the world" %}
+  </p>
+
+<div class="welcome__auth_section auth">
+    <div>
+    <a href="{% url 'user_app:sign_up' %}" class="auth__link auth__sign_up">
+      {% trans "Sign up" %}
+    </a>
+  </div>
+  <div>
+    <a href="{% url 'user_app:login' %}" class="auth__link auth__log_in">
+      {% trans "Log in" %}
+    </a>
+  </div>
+</div>
+
+
+{% endblock %}

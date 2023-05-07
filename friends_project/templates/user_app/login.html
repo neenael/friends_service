@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Log in" %}
+{% endblock %}
+
+{% block main %}
+<div class="main__wrapper--login container">
+    <form method="post" class="login__form">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">
+      {% trans "Log in" %}
+    </button>
+  </form>
+</div>
+
+{% endblock %}
+
