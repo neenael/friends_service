@@ -32,6 +32,7 @@ $ pip install djangorestframework
 ```commandline
 $ pip install drf-spectacular
 ```
+Also check your GNU gettext. Update if it's necessary
 4. Run migrations compilation
 ```commandline
 $ python manage.py migrate
