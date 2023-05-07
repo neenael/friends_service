@@ -17,17 +17,28 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from friends_project.views import start_page
-from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+from drf_spectacular.views import (
+    SpectacularAPIView,
+    SpectacularRedocView,
+    SpectacularSwaggerView,
+)
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', start_page, name='start_page'),
-    path('accounts/', include('user_app.urls')),
-    path('i18n/', include('django.conf.urls.i18n')),
-
-    path('api/v1/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('api/v1/schema/swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger'),
-    path('api/v1/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
-    path('api/v1/', include('api_app.urls')),
+    path("admin/", admin.site.urls),
+    path("", start_page, name="start_page"),
+    path("accounts/", include("user_app.urls")),
+    path("i18n/", include("django.conf.urls.i18n")),
+    path("api/v1/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path(
+        "api/v1/schema/swagger/",
+        SpectacularSwaggerView.as_view(url_name="schema"),
+        name="swagger",
+    ),
+    path(
+        "api/v1/schema/redoc/",
+        SpectacularRedocView.as_view(url_name="schema"),
+        name="redoc",
+    ),
+    path("api/v1/", include("api_app.urls")),
 ]

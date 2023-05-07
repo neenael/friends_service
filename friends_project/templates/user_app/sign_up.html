@@ -2,19 +2,18 @@
 {% load i18n %}
 
 {% block title %}
-  {% trans "Sign up" %}
+{% trans "Sign up" %}
 {% endblock %}
 
 {% block main %}
 <div class="main__wrapper--register container">
-    <form method="post" class="register__form">
-      {% csrf_token %}
-      {{form.as_p}}
-      <button type="submit" class="register__btn">
-        {% trans "Sign up" %}
-      </button>
-    </form>
+  <form method="post" class="register__form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="register__btn">
+      {% trans "Sign up" %}
+    </button>
+  </form>
 </div>
 
 {% endblock %}
-
