@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+  {{user.username}}
+{% endblock %}
+
+{% block main %}
+<div class="main__wrapper--account container">
+
+  <div class="account_owner">
+    <h1 class="account_owner__title">
+      {{user.username}}
+    </h1>
+    {% if request.user == user %}
+        <a href="{% url 'user_app:logout' %}" class="account_owner__logout">
+            {% trans "Log out" %}
+        </a>
+    {% endif %}
+
+  </div>
+
+  <div class="account__panel">
+    {% block utils %}
+    {% endblock %}
+  </div>
+
+
+</div>
+{% endblock %}
+
+

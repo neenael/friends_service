@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-07 10:14+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: templates/base.html:24
+msgid "My profile"
+msgstr "Мой профиль"
+
+#: templates/base.html:29 templates/user_app/users_list.html:5
+msgid "Users list"
+msgstr "Список пользователей"
+
+#: templates/base.html:47
+msgid "Set"
+msgstr "Установить"
+
+#: templates/start_page.html:5
+msgid "Welcome"
+msgstr "Добро пожаловать"
+
+#: templates/start_page.html:10
+msgid "Welcome to Friends Service!"
+msgstr "Добро пожаловать в Сервис для друзей!"
+
+#: templates/start_page.html:13
+msgid "We connect people all over the world"
+msgstr "Мы объединяем людей по всему миру"
+
+#: templates/start_page.html:19 templates/user_app/sign_up.html:5
+#: templates/user_app/sign_up.html:14
+msgid "Sign up"
+msgstr "Регистрация"
+
+#: templates/start_page.html:24 templates/user_app/login.html:5
+#: templates/user_app/login.html:14
+msgid "Log in"
+msgstr "Вход"
+
+#: templates/user_app/account.html:17
+msgid "Log out"
+msgstr "Выход"
+
+#: templates/user_app/foreign_account.html:11
+msgid "Now you are not friends"
+msgstr "Вы не дружите"
+
+#: templates/user_app/foreign_account.html:17
+msgid "Send a friendship request"
+msgstr "Отправить запрос на дружбу"
+
+#: templates/user_app/foreign_account.html:26
+msgid "Request is sent"
+msgstr "Запрос отправлен"
+
+#: templates/user_app/foreign_account.html:32
+msgid "Cancel a request"
+msgstr "Отменить запрос"
+
+#: templates/user_app/foreign_account.html:42
+msgid "Request is received"
+msgstr "Запрос получен"
+
+#: templates/user_app/foreign_account.html:48
+msgid "Accept a request"
+msgstr "Принять запрос"
+
+#: templates/user_app/foreign_account.html:55
+msgid "Reject a request"
+msgstr "Отклонить запрос"
+
+#: templates/user_app/foreign_account.html:66
+msgid "You are friends"
+msgstr "Вы друзья"
+
+#: templates/user_app/foreign_account.html:72
+msgid "Remove friend"
+msgstr "Удалить из друзей"
+
+#: templates/user_app/my_account.html:8
+msgid "Friends"
+msgstr "Друзья"
+
+#: templates/user_app/my_account.html:30
+msgid "No friends yet"
+msgstr "Список друзей пока пуст"
+
+#: templates/user_app/my_account.html:38
+msgid "Incoming requests"
+msgstr "Входящие запросы"
+
+#: templates/user_app/my_account.html:54
+msgid "No incoming requests yet"
+msgstr "Список входящих запросов пока пуст"
+
+#: templates/user_app/my_account.html:62
+msgid "Outgoing requests"
+msgstr "Исходящие запросы"
+
+#: templates/user_app/my_account.html:77
+msgid "No outgoing requests yet"
+msgstr "Список исходящих запросов пока пуст"
+
+#: templates/user_app/users_list.html:16
+msgid "Me"
+msgstr "Я"
+
+#: user_app/apps.py:8
+msgid "User app"
+msgstr "Пользовательское приложение"
+
+#: user_app/models.py:8
+msgid "Friendship request"
+msgstr "Запрос на дружбу"
+
+#: user_app/models.py:9
+msgid "Friendship requests"
+msgstr "Запросы на дружбу"
+
+#: user_app/models.py:12
+msgid "Request from"
+msgstr "Запрос от"
+
+#: user_app/models.py:14
+msgid "Request to"
+msgstr "Запрос для"
+
+#: user_app/models.py:15
+msgid "Is received"
+msgstr "Принят"
+
+#: user_app/models.py:23
+msgid "Friendship"
+msgstr "Дружба"
+
+#: user_app/models.py:24
+msgid "Friendships"
+msgstr "Дружбы"
+
+#: user_app/models.py:27
+msgid "Member 1"
+msgstr "Друг 1"
+
+#: user_app/models.py:29
+msgid "Member 2"
+msgstr "Друг 2"
+
+#: user_app/models.py:30
+msgid "Date created"
+msgstr "Дата начала дружбы"

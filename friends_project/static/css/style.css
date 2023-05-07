@@ -1,0 +1,320 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+.header {
+  background-color: #5d5fef;
+}
+h1, h2, h3, h4, p, a, ul, li{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+button{
+    cursor: pointer;
+}
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+
+}
+
+
+.header__wrapper a{
+    text-decoration: none;
+    color: #fff;
+}
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.header__lang{
+    display: flex;
+}
+.header__lang > * {
+  background-color: #7879f1;
+  color: #fff;
+  font-size: 18px;
+    display: block;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid #7879f1;
+  transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
+
+}
+.header__lang > *:focus-visible{
+    outline: none;
+}
+.header__lang > *:not(:last-child) {
+  margin-right: 15px;
+}
+.header__lang > *:hover:not(:focus-visible){
+    background-color: #5d5fef;
+    border-color: #7879f1;
+}
+.welcome__title {
+  padding-top: 55px;
+  padding-bottom: 30px;
+  font-weight: 700;
+  font-size: 42px;
+  text-align: center;
+}
+
+.welcome__subtitle {
+  color: #888;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+.welcome__auth_section {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.auth__link {
+  text-decoration: none;
+  color: #fff;
+  
+  border-radius: 10px;
+  display: block;
+}
+.auth__sign_up {
+  background-color: #5d5fef;
+  border: 3px solid #5d5fef;
+  padding: 12px 20px;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+
+.auth__log_in {
+  border: 3px solid #5d5fef;
+  color: #5d5fef;
+  padding: 12px 20px;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+
+.login__form input {
+  border: 3px solid #5d5fef;
+  border-radius: 5px;
+  height: 40px;
+}
+.main__wrapper--login {
+  display: flex;
+  justify-content: center;
+}
+.login__form {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+  width: 300px;
+}
+.login__form > input:not(:last-child){
+    margin-bottom: 20px;
+
+}
+.login__form > button{
+    border: 3px solid #5d5fef;
+    background-color: #5d5fef;
+    color: #fff;
+    border-radius: 10px;
+    padding: 17px 30px;
+    margin-top: 30px;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+.login__form > button:hover:not(:focus-visible){
+    background-color: #fff;
+    color: #5d5fef;
+}
+.account_owner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.account_owner__title{
+    padding: 40px 0;
+}
+.account_owner__logout{
+    padding: 5px 10px;
+    border: 2px solid red;
+    color: red;
+    border-radius: 5px;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+
+}
+.panel__item{
+    border: 3px solid #A5A6F6;
+    border-radius: 10px;
+    padding: 20px;
+}
+.panel__item:not(:last-child){
+    margin-bottom: 20px;
+}
+
+.account__panel{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.panel__item__title{
+    color: #444;
+    margin-bottom: 25px;
+}
+.panel__item__list{
+    list-style: none;
+}
+.account__empty_msg{
+    color: #bbb;
+}
+
+
+.user_list{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.user_list__item{
+    font-size: 22px;
+}
+.user_list__item:not(:last-child){
+    margin-bottom: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.relationship_panel form{
+    display: flex;
+    flex-direction: column;
+    max-width: max-content;
+}
+.relationship_panel button{
+    color: #5d5fef;
+    border: 3px solid #5d5fef;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+
+.relationship_panel button.red__status_btn{
+    color: red;
+    border: 3px solid red;
+}
+.relationship_panel form:not(:last-child){
+    margin-bottom: 15px;
+}
+.relationship__status{
+    color: #888;
+    margin-bottom: 20px;
+}
+
+
+.main__wrapper--register{
+    padding: 40px 0;
+}
+
+
+.register__form > *:not(:last-child){
+    margin-bottom: 15px;
+}
+.register__form ul{
+    list-style-type:none;
+    color: #999;
+}
+
+.register__form input{
+    display: block;
+    margin: 10px 0;
+    border: 3px solid #5d5fef;
+padding: 5px;
+    border-radius: 5px;
+}
+.helptext{
+    color: #999;
+    display: block;
+}
+.register__btn{
+    color: #30BF39;
+    border: 3px solid #30BF39;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+@media (max-width: 1500px) {
+  .container {
+    max-width: 1000px;
+  }
+  .header__lang > * {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+}
+
+
+.relationship_panel button:hover:not(:focus-visible){
+    background-color: #5d5fef;
+    color: #fff;
+}
+.relationship_panel button.red__status_btn:hover:not(:focus-visible){
+    background-color: red;
+    color: #fff;
+}
+.account_owner__logout:hover:not(:focus-visible){
+    background-color: red;
+    color: #fff;
+}
+.header__wrapper a{
+    position: relative;
+}
+.header__wrapper a::after{
+    position: absolute;
+    content: "";
+    bottom: -5px;
+    background-color: #fff;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+
+}
+.header__wrapper a:hover:not(:focus-visible)::after{
+    opacity: 1;
+}
+.panel__item__list a{
+    transition: color .2s ease-in-out;
+}
+.panel__item__list a:hover{
+    color: #999;
+}
+
+.user_list a{
+    transition: color .2s ease-in-out;
+}
+.user_list a:hover:not(:focus-visible){
+    color: #888;
+}
+
+
+.register__btn:hover:not(:focus-visible){
+    color: #fff;
+    background-color: #30BF39;
+}
+.auth__sign_up:hover:not(:focus-visible){
+    background-color: #fff;
+    color: #5d5fef;
+}
+.auth__log_in:hover:not(:focus-visible){
+    background-color: #5d5fef;
+    color: #fff;
+}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Users list" %}
+{% endblock %}
+
+{% block main %}
+<div class="main__wrapper--user_list container">
+  <ul class="user_list">
+      {% for user in users %}
+      <li class="user_list__item">
+        <a href="{% url 'user_app:account' pk=user.pk %}">
+          {{user}}
+          {% if user.id == request.user.id%}
+            ({% trans "Me" %})
+          {% endif %}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+{% endblock %}
+

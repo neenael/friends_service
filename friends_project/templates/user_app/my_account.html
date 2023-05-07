@@ -1,0 +1,86 @@
+{% extends 'user_app/account.html' %}
+{% load i18n %}
+
+{% block utils %}
+
+  <div class="panel__item">
+    <h2 class="panel__item__title">
+      {% trans "Friends" %}
+    </h2>
+    {% if friends %}
+    <ul class="panel__item__list">
+      {% for friend in friends %}
+      <li>
+        {% if friend.member_1 == request.user %}
+        <a href="{% url 'user_app:account' pk=friend.member_2.id %}">
+          {{friend.member_2}}
+        </a>
+        {% else %}
+        <a href="{% url 'user_app:account' pk=friend.member_1.id %}">
+          {{friend.member_1}}
+        </a>
+
+        {% endif %}
+      </li>
+
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="account__empty_msg">
+      {% trans "No friends yet" %}
+    </p>
+    {% endif %}
+
+  </div>
+
+  <div class="panel__item">
+    <h2 class="panel__item__title">
+      {% trans "Incoming requests" %}
+    </h2>
+
+    {% if in_reqs %}
+          <ul class="panel__item__list">
+      {% for req in in_reqs %}
+        <li>
+          <a href="{% url 'user_app:account' pk=req.request_from.id %}">
+            {{req.request_from}}
+          </a>
+
+        </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p class="account__empty_msg">
+        {% trans "No incoming requests yet" %}
+      </p>
+    {% endif %}
+
+  </div>
+
+  <div class="panel__item">
+    <h2 class="panel__item__title">
+      {% trans "Outgoing requests" %}
+    </h2>
+
+    {% if out_reqs %}
+          <ul class="panel__item__list">
+      {% for req in out_reqs %}
+        <li>
+          <a href="{% url 'user_app:account' pk=req.request_to.id %}">
+            {{req.request_to}}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p class="account__empty_msg">
+        {% trans "No outgoing requests yet" %}
+      </p>
+    {% endif %}
+
+  </div>
+
+
+
+{% endblock %}
+

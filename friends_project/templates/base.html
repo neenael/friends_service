@@ -1,0 +1,57 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <header class="header">
+        <div class="header__wrapper container">
+                {% if request.user.is_authenticated %}
+                <div>
+                    <a href="{% url 'user_app:account' pk=request.user.pk %}">
+                        {% trans "My profile" %}
+                    </a>
+                </div>
+                <div>
+                    <a href="{% url 'user_app:users_list' %}">
+                        {% trans "Users list" %}
+                    </a>
+                </div>
+        {% endif %}
+
+        <form action="{% url 'set_language' %}" method="post" class="header__lang">
+            {% csrf_token %}
+            <select name="language">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              {% for language in  languages%}
+                <option value="{{ language.code }}"
+                        {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                          {{language.name_local}}
+                </option>
+              {% endfor %}
+            </select>
+            <button type="submit">{% trans "Set" %}</button>
+      </form>
+        </div>
+    </header>
+    <main class="main">
+        {% block main %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>
