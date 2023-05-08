@@ -57,7 +57,7 @@ $ pip install djangorestframework
 ```commandline
 $ pip install drf-spectacular
 ```
-Also check your GNU gettext. Update if it's necessary
+Also check your GNU gettext. Update if it's necessary\
 4. Follow the project directory
 ```commandline
 $ cd friends_service 
