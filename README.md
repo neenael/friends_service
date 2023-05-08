@@ -2,6 +2,8 @@
 Service for friends around the world
 ## Endpoints
 - [Get started](#get-started)
+  - [Docker](#docker)
+  - [Common installation](#common-installation)
 - [Model description](#model-description)
 - [API Documentation](#api-documentation)
   - [Friendship API](#friendship-api)
@@ -9,12 +11,35 @@ Service for friends around the world
 
 
 ## Get started
+
+### Docker
+This project contains a template Dockerfile for running Django applications in a Docker container.\
+To use Docker in a Django project, you need to have Docker installed on your machine. You can download Docker Desktop on the official website\
+Docker: https://www.docker.com/products/docker-desktop
+1. Сopy the project from the repository:
+```
+$ git clone https://github.com/neenael/friends_service.git
+```
+2. Follow the project directory
+```commandline
+$ cd friends_service 
+```
+3. Run the command below to pull Image from DockerHub
+```commandline
+$ docker pull neenael/friendsserviceimage
+```
+4. Run the command below to run sercive
+```commandline
+$ docker run -p 8000:8000 --name friendsservice neenael/friendsserviceimage
+```
+5. [Follow the localhost (127.0.0.1:8000)](http://127.0.0.1:8000)
+
+### Common installation
 1. Сopy the project from the repository:
 ```
 $ git clone https://github.com/neenael/friends_service.git
 ```
 2. Set up a virtual environment
-
 ```commandline
 $ python -m venv venv
 ```
@@ -33,15 +58,19 @@ $ pip install djangorestframework
 $ pip install drf-spectacular
 ```
 Also check your GNU gettext. Update if it's necessary
-4. Run migrations compilation
+4. Follow the project directory
+```commandline
+$ cd friends_service 
+```
+5. Run migrations compilation
 ```commandline
 $ python manage.py migrate
 ```
-5. Execute the command to run local server
+6. Execute the command to run local server
 ```commandline
 $ python manage.py runserver
 ```
-6. [Follow the localhost (127.0.0.1:8000)](http://127.0.0.1:8000)
+7. [Follow the localhost (127.0.0.1:8000)](http://127.0.0.1:8000)
 ## Model description
 ### User
 The default User model represents a user in the system.
@@ -57,10 +86,12 @@ The default User model represents a user in the system.
 
 ### Friendship
 The Friendship model represents a friendship between two members in the system.
+
 | Field           | Type            | Description                  |
 |-----------------|-----------------|------------------------------|
 | member_1 | ForignKey(User) | One member of friendship     |
 | member_2 | ForignKey(User)  | Another member of Friendship |
+
 ### FriendshipRequest
 The FriendshipRequest model represents a friendship request from one user to another in the system.
 
