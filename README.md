@@ -1,13 +1,13 @@
 # Friends service
 ### Service for friends around the world
 The goal of the project is to give people the opportunity to create online communications
-Stack:
+### Stack:
 - Python
 - Django
 - Git
 - DRF
 - Docker
-
+![Screenshot](https://github.com/jon/coolproject/raw/master/image/image.png](https://github.com/neenael/friends_service/blob/main/screenshot.png) 
 ## Endpoints
 - [Get started](#get-started)
   - [Docker](#docker)
