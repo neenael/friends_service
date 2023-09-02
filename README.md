@@ -1,5 +1,13 @@
 # Friends service
-Service for friends around the world
+### Service for friends around the world
+The goal of the project is to give people the opportunity to create online communications
+Stack:
+- Python
+- Django
+- Git
+- DRF
+- Docker
+
 ## Endpoints
 - [Get started](#get-started)
   - [Docker](#docker)
