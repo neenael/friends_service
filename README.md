@@ -7,6 +7,8 @@ The goal of the project is to give people the opportunity to create online commu
 - Git
 - DRF
 - Docker
+
+### Screenshot
 ![Screenshot](https://github.com/jon/coolproject/raw/master/image/image.png)
 ## Endpoints
 - [Get started](#get-started)
