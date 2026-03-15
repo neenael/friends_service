@@ -33,9 +33,9 @@ ALLOWED_HOSTS = [
      "127.0.0.1"
      ]
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://friends-service-g19y.onrender.com",
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     "https://friends-service-g19y.onrender.com",
+# ]
 
 # Application definition
 
@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -165,3 +166,5 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
