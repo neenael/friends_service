@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*v0j_z-i*qw)4!610^7@^$=m)=7nr8)(v7i*%zl9at)g=89$c8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "friends-service-g19y.onrender.com",
@@ -33,6 +33,9 @@ ALLOWED_HOSTS = [
      "127.0.0.1"
      ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://friends-service-g19y.onrender.com",
+]
 
 # Application definition
 
