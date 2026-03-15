@@ -1,6 +1,7 @@
 # Friends service
 ### Service for friends around the world
 The goal of the project is to give people the opportunity to create online communications
+[LIVE DEM0 LINK -> https://friends-service-g19y.onrender.com/](https://friends-service-g19y.onrender.com/)
 ### Stack:
 - Python
 - Django
